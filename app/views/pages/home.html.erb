@@ -1,4 +1,3 @@
-<h1><%= "Hello, #{current_user.email}" %></h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 <% if user_signed_in? %>
   <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
@@ -8,9 +7,12 @@
 <% end %>
 <p>Tu peux essayer l'API avec les informations d'identification suivantes.</p>
 <div class="home-container">
+  <%= @application.as_json %>
   <ul>
     <li><%= link_to "Web Articles", articles_path %></li>
-    <li>API V1 Articles</li>
-    <li>API V1 Android Articles</li>
+    <li><%= link_to "API V1 Articles", api_v1_articles_path %></li>
+    <li><%= link_to "API V1 Android Articles", api_v1_android_articles_path %></li>
+
+    <li>API V1 React Articles</li>
   </ul>
 </div>
